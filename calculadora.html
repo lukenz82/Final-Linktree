@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    header {
+      background-color: #3a3a3a;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .calculadora {
+      background-color: #000000;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      width: 300px;
+    }
+
+    .pantalla {
+      width: 100%;
+      height: 60px;
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: right;
+      padding: 10px;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      color: #ffffff;
+      background-color: #000;
+    }
+
+    .botones {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #ffffff;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #fb2d2d;
+    }
+
+    .volver-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #3a3a3a;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .volver-btn:hover {
+      background-color: #555;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="Imagenes/calculadorareal.PNG" alt="Logo" />
+      <div class="logo">Calculadora</div>
+    </div>
+    <nav>
+      <a href="porfolio.html#sobre-mi">Sobre mí</a>
+      <a href="porfolio.html">Mis proyectos</a>
+      <a href="porfolio.html#contacto">Contacto</a>
+      <a href="index.html" target="_blank">Linktree</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="calculadora">
+      <input type="text" id="pantalla" class="pantalla" disabled />
+      <div class="botones">
+        <button onclick="agregar('7')">7</button>
+        <button onclick="agregar('8')">8</button>
+        <button onclick="agregar('9')">9</button>
+        <button onclick="agregar('/')">/</button>
+
+        <button onclick="agregar('4')">4</button>
+        <button onclick="agregar('5')">5</button>
+        <button onclick="agregar('6')">6</button>
+        <button onclick="agregar('*')">*</button>
+
+        <button onclick="agregar('1')">1</button>
+        <button onclick="agregar('2')">2</button>
+        <button onclick="agregar('3')">3</button>
+        <button onclick="agregar('-')">-</button>
+
+        <button onclick="agregar('0')">0</button>
+        <button onclick="agregar('.')">.</button>
+        <button onclick="calcular()">=</button>
+        <button onclick="agregar('+')">+</button>
+
+        <button onclick="borrarTodo()" style="grid-column: span 4; background-color: #858585; color: white;">C</button>
+      </div>
+    </div>
+
+    <a class="volver-btn" href="porfolio.html"> Volver al Portafolio</a>
+  </main>
+
+  <script src="calculadora.js"></script>
+</body>
+</html>

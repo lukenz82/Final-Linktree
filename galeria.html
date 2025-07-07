@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Minimalista</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .calculadora {
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+      width: 320px;
+    }
+
+    .display {
+      background: #000;
+      color: #d4af37;
+      font-size: 2rem;
+      text-align: right;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .teclado {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .boton {
+      padding: 20px;
+      font-size: 18px;
+      background-color: #2a2a2a;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .boton:hover {
+      background-color: #444;
+      color: #d4af37;
+      transform: scale(1.05);
+    }
+
+    .igual {
+      background-color: #d4af37;
+      color: #000;
+    }
+
+    .igual:hover {
+      background-color: #bfa135;
+    }
+
+    .volver {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .volver a {
+      color: #d4af37;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .volver a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="calculadora">
+      <input type="text" class="display" id="pantalla" disabled>
+
+      <div class="teclado">
+        <button class="boton" onclick="ingresar('7')">7</button>
+        <button class="boton" onclick="ingresar('8')">8</button>
+        <button class="boton" onclick="ingresar('9')">9</button>
+        <button class="boton" onclick="ingresar('/')">/</button>
+
+        <button class="boton" onclick="ingresar('4')">4</button>
+        <button class="boton" onclick="ingresar('5')">5</button>
+        <button class="boton" onclick="ingresar('6')">6</button>
+        <button class="boton" onclick="ingresar('*')">*</button>
+
+        <button class="boton" onclick="ingresar('1')">1</button>
+        <button class="boton" onclick="ingresar('2')">2</button>
+        <button class="boton" onclick="ingresar('3')">3</button>
+        <button class="boton" onclick="ingresar('-')">-</button>
+
+        <button class="boton" onclick="ingresar('0')">0</button>
+        <button class="boton" onclick="ingresar('.')">.</button>
+        <button class="boton igual" onclick="calcular()">=</button>
+        <button class="boton" onclick="ingresar('+')">+</button>
+
+        <button class="boton" style="grid-column: span 4;" onclick="borrar()">C</button>
+      </div>
+
+      <div class="volver">
+        <a href="porfolio.html">Volver al Porfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let pantalla = document.getElementById("pantalla");
+
+    function ingresar(valor) {
+      pantalla.value += valor;
+    }
+
+    function calcular() {
+      try {
+        pantalla.value = eval(pantalla.value);
+      } catch {
+        pantalla.value = "Error";
+      }
+    }
+
+    function borrar() {
+      pantalla.value = "";
+    }
+  </script>
+
+</body>
+</html>
+
